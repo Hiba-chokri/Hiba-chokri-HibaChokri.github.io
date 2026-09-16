@@ -1,5 +1,0 @@
-baseURL = 'https://akilan.io/hiba'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-
-theme = "congo"

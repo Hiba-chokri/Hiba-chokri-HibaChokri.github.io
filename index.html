@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hiba Chokri | AI Engineer</title>
+<meta name="description" content="Hiba Chokri, AI Engineer. RAG pipelines, LLM agents, vision-language models and production ML services in Python, self-hosted and evaluated to hold up in production.">
+<meta name="author" content="Hiba Chokri">
+<meta name="theme-color" content="#0a0b10">
+<meta name="color-scheme" content="dark">
+
+<!-- TODO: replace with your final site URL once deployed -->
+<link rel="canonical" href="https://REPLACE-WITH-SITE-URL/">
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hiba Chokri">
+<meta property="og:title" content="Hiba Chokri | AI Engineer">
+<meta property="og:description" content="RAG pipelines, LLM agents and production ML services, self-hosted and measured to hold up in production.">
+<meta property="og:url" content="https://REPLACE-WITH-SITE-URL/">
+<!-- Optional: add a 1200x630 preview image and uncomment -->
+<!-- <meta property="og:image" content="https://REPLACE-WITH-SITE-URL/og.png"> -->
+<!-- <meta property="og:image:alt" content="Hiba Chokri, AI Engineer"> -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hiba Chokri | AI Engineer">
+<meta name="twitter:description" content="RAG pipelines, LLM agents and production ML services, measured to hold up in production.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236ee7c8'/%3E%3Cstop offset='1' stop-color='%238b8cf8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='14' font-weight='700' text-anchor='middle' fill='%230a0b10'%3EHC%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0a0b10;
+    --surface: #11131a;
+    --surface-2: #161923;
+    --border: #22263220;
+    --line: #232733;
+    --line-strong: #353a48;
+    --text: #eceef3;
+    --muted: #a6adbb;
+    --faint: #8b92a1;
+    --accent: #6ee7c8;
+    --accent-2: #8b8cf8;
+    --grad: linear-gradient(120deg, var(--accent), var(--accent-2));
+    --maxw: 1040px;
+    --sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  .skip {
+    position: absolute; left: 16px; top: -48px; z-index: 100;
+    background: var(--accent); color: var(--bg);
+    padding: 8px 14px; border-radius: 8px; font-weight: 600; text-decoration: none;
+  }
+  .skip:focus { top: 12px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 520px) { .wrap { padding: 0 16px; } body { font-size: 16px; } }
+
+  /* Background glow + grid, decorative only */
+  .bg-deco {
+    position: absolute; inset: 0 0 auto 0; height: 900px; z-index: -1; pointer-events: none; overflow: hidden;
+  }
+  .bg-deco::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, #ffffff08 1px, transparent 1px),
+      linear-gradient(to bottom, #ffffff08 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 30%, transparent 75%);
+  }
+  .bg-deco::after {
+    content: ""; position: absolute; width: 720px; height: 720px;
+    top: -320px; right: -180px; border-radius: 50%;
+    background: radial-gradient(circle, #8b8cf833 0%, #6ee7c81a 40%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: #0a0b10cc;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+  .brand .mark {
+    width: 30px; height: 30px; border-radius: 8px; background: var(--grad);
+    color: var(--bg); display: grid; place-items: center; font-size: 12px; font-weight: 800;
+  }
+  nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 8px; transition: color .15s, background-color .15s; }
+  nav a:hover { color: var(--text); background: var(--surface-2); }
+  @media (max-width: 600px) { nav { display: none; } }
+
+  section { padding: 96px 0; }
+  @media (max-width: 520px) { section { padding: 64px 0; } }
+
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin: 0 0 40px; }
+  .sec-head .idx { font-family: var(--mono); font-size: 14px; color: var(--accent); }
+  .sec-head h2 { margin: 0; font-size: clamp(28px, 4vw, 36px); letter-spacing: -0.025em; font-weight: 700; line-height: 1.2; }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--line); align-self: center; }
+
+  /* Hero */
+  .hero { padding: 104px 0 72px; }
+  .status {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 6px 14px 6px 10px; border-radius: 999px;
+    border: 1px solid var(--line-strong); background: #11131acc;
+    font-size: 13px; font-weight: 500; color: var(--muted); margin-bottom: 28px;
+  }
+  .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px #6ee7c826; }
+  .hero h1 {
+    font-size: clamp(46px, 8.5vw, 84px); line-height: 1.0;
+    letter-spacing: -0.045em; margin: 0 0 14px; font-weight: 800;
+  }
+  .hero .role {
+    font-size: clamp(22px, 3.4vw, 30px); font-weight: 700; letter-spacing: -0.02em;
+    margin: 0 0 30px; line-height: 1.2;
+    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+    display: inline-block;
+  }
+  .hero .thesis {
+    font-size: clamp(19px, 2.4vw, 23px); line-height: 1.45; font-weight: 500;
+    max-width: 40ch; margin: 0 0 16px; color: var(--text);
+  }
+  .hero .sub { color: var(--muted); max-width: 60ch; margin: 0 0 40px; font-size: 17px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 11px 18px; border-radius: 10px; font-size: 15px; font-weight: 600;
+    text-decoration: none; border: 1px solid var(--line-strong);
+    background: var(--surface); color: var(--text);
+    transition: border-color .15s, background-color .15s, transform .15s;
+  }
+  .btn:hover { border-color: var(--faint); background: var(--surface-2); transform: translateY(-1px); }
+  .btn.primary { background: var(--grad); color: #0a0b10; border-color: transparent; }
+  .btn.primary:hover { filter: brightness(1.08); }
+  .btn svg { width: 17px; height: 17px; flex: none; }
+
+  /* Stats */
+  .stats {
+    margin-top: 64px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line); border-radius: 16px; background: #11131aa6;
+    overflow: hidden;
+  }
+  .stat { padding: 24px 26px; }
+  .stat + .stat { border-left: 1px solid var(--line); }
+  .stat .v { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 6px; }
+  .stat .v span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .k { font-size: 14px; color: var(--muted); line-height: 1.45; }
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: 1fr; }
+    .stat + .stat { border-left: 0; border-top: 1px solid var(--line); }
+    .stat { padding: 20px; }
+  }
+
+  /* Experience timeline */
+  .timeline { position: relative; }
+  .job { position: relative; display: grid; grid-template-columns: 170px 1fr; gap: 8px 40px; padding-bottom: 44px; }
+  .job:last-child { padding-bottom: 0; }
+  .job .when { font-family: var(--mono); font-size: 13px; color: var(--faint); padding-top: 5px; text-align: right; }
+  .job .body { position: relative; padding-left: 32px; }
+  .job .body::before {
+    content: ""; position: absolute; left: 0; top: 10px; bottom: -44px; width: 1px; background: var(--line-strong);
+  }
+  .job:last-child .body::before { bottom: 0; }
+  .job .body::after {
+    content: ""; position: absolute; left: -5px; top: 8px; width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent);
+  }
+  .job h3 { margin: 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em; }
+  .job .title { color: var(--accent); margin: 2px 0 16px; font-size: 15px; font-weight: 600; }
+  .job ul { margin: 0; padding: 0; list-style: none; }
+  .job li { position: relative; padding-left: 20px; margin: 0 0 10px; color: #d3d7df; }
+  .job li::before { content: ""; position: absolute; left: 2px; top: 11px; width: 6px; height: 6px; border-radius: 2px; background: var(--line-strong); }
+  @media (max-width: 720px) {
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .job .when { text-align: left; padding: 0 0 0 32px; }
+    .job .body::before { top: -24px; }
+    .job:first-child .body::before { top: 10px; }
+  }
+
+  /* Projects */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 20px;
+  }
+  .card {
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 28px 26px 24px;
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    text-decoration: none; color: var(--text);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .card::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+    background: var(--grad); opacity: .35; transition: opacity .2s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: #6ee7c866; box-shadow: 0 18px 40px -20px #6ee7c840; }
+  .card:hover::before { opacity: 1; }
+  .card:focus-visible { outline-offset: 3px; border-radius: 16px; }
+  .card .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .card .icon {
+    width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+    background: #6ee7c814; border: 1px solid #6ee7c833; color: var(--accent);
+  }
+  .card .icon svg { width: 20px; height: 20px; }
+  .card .ext {
+    width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid var(--line-strong); color: var(--faint);
+    transition: color .2s, border-color .2s, background-color .2s;
+  }
+  .card .ext svg { width: 15px; height: 15px; }
+  .card:hover .ext { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+  .card h3 { margin: 0 0 10px; font-size: 19px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 700; }
+  .card p { margin: 0 0 22px; color: var(--muted); font-size: 15px; line-height: 1.65; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; margin: 0; padding: 0; }
+  .tags li {
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    padding: 4px 10px; border-radius: 999px;
+    background: #ffffff0a; border: 1px solid var(--line-strong); color: #c5cad4;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card, .btn { transition: none; }
+    .card:hover, .btn:hover { transform: none; }
+  }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .skill-box { padding: 26px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
+  .skill-box h3 { margin: 0 0 18px; font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  .skill-box h3 svg { width: 20px; height: 20px; color: var(--accent); }
+  .skill-box .tags li { font-size: 12.5px; color: var(--text); }
+  @media (max-width: 860px) { .skills { grid-template-columns: 1fr; } }
+
+  /* Contact */
+  .contact-card {
+    position: relative; overflow: hidden;
+    border-radius: 24px; border: 1px solid var(--line-strong);
+    padding: 56px 48px;
+    background:
+      radial-gradient(ellipse 60% 80% at 100% 0%, #8b8cf826, transparent 60%),
+      radial-gradient(ellipse 50% 70% at 0% 100%, #6ee7c81f, transparent 60%),
+      var(--surface);
+  }
+  @media (max-width: 520px) { .contact-card { padding: 36px 22px; border-radius: 18px; } }
+  .contact-card h2 { font-size: clamp(30px, 5vw, 46px); letter-spacing: -0.035em; margin: 0 0 14px; line-height: 1.1; font-weight: 800; }
+  .contact-card > p { color: var(--muted); max-width: 54ch; margin: 0 0 30px; font-size: 17px; }
+  .email-big {
+    display: inline-block; font-weight: 700;
+    font-size: clamp(19px, 3.2vw, 26px); letter-spacing: -0.01em;
+    text-decoration: none; margin-bottom: 36px; word-break: break-all;
+    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+    border-bottom: 2px solid #6ee7c855;
+  }
+  .email-big:hover { border-bottom-color: var(--accent); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; margin: 0 0 36px; }
+  .fact { padding: 16px 18px; border-radius: 12px; background: #0a0b1080; border: 1px solid var(--line); }
+  .fact dt { color: var(--faint); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+  .fact dd { margin: 0; font-size: 15px; font-weight: 500; overflow-wrap: anywhere; }
+  .fact a { text-decoration: none; }
+  .fact a:hover { color: var(--accent); }
+
+  footer { padding: 32px 0 48px; color: var(--faint); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--line); padding-top: 28px; }
+  footer a { color: var(--muted); text-decoration: none; margin-left: 18px; }
+  footer a:first-child { margin-left: 0; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="bg-deco" aria-hidden="true"></div>
+
+<!-- Reusable inline icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 5h18v14H3zM3 6l9 7 9-7"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12M7 10l5 5 5-5M4 20h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM20 20l-4-4M8 11h6M11 8v6"/></symbol>
+  <symbol id="i-graph" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 6h9M6.3 8.2l4.4 7.6M17.7 8.2l-4.4 7.6"/></g></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l6-6"/></g></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="6" rx="1.5"/><rect x="14" y="15" width="7" height="6" rx="1.5"/><path d="M6.5 9v3a3 3 0 0 0 3 3h4.5M21 9a6 6 0 0 0-6-6h-1l2-2M14 3l2 2"/></g></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="4" cy="7" r="2"/><circle cx="4" cy="17" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="20" cy="12" r="2"/><path d="M6 7.5l4 4M6 16.5l4-4M6 7l4-2M6 17l4 2M14 12h4M14 5.5l4.3 5.3M14 18.5l4.3-5.3"/></g></symbol>
+  <symbol id="i-brain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V6a2 2 0 0 0-3-2Z"/><path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></g></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></g></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></g></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true">HC</span>Hiba Chokri</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top" aria-labelledby="hero-name">
+    <div class="wrap">
+      <p class="status"><span class="dot" aria-hidden="true"></span>Open to remote roles worldwide</p>
+      <h1 id="hero-name">Hiba Chokri</h1>
+      <p class="role">AI Engineer</p>
+      <p class="thesis">I build AI systems that run inside a client's own infrastructure, on self-hosted models with no third-party inference.</p>
+      <p class="sub">RAG pipelines, LLM agents, and production ML services in Python. I care about whether models actually hold up, not just whether the demo works.</p>
+      <div class="actions">
+        <!-- TODO: PLACEHOLDER. Replace href with the path/URL to your CV PDF (e.g. "cv/Hiba-Chokri-CV.pdf") -->
+        <a class="btn primary" href="#REPLACE-WITH-CV-URL" download>
+          <svg aria-hidden="true"><use href="#i-dl"/></svg>Download CV
+        </a>
+        <a class="btn" href="https://github.com/Hiba-chokri" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true"><use href="#i-gh"/></svg>GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/hiba-chokri-050b8a266" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true"><use href="#i-in"/></svg>LinkedIn
+        </a>
+        <a class="btn" href="mailto:hebachokri7@gmail.com">
+          <svg aria-hidden="true"><use href="#i-mail"/></svg>Email
+        </a>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="v"><span>R² 0.70+</span></div>
+          <div class="k">Valuation model on held-out data, gated by CI before promotion</div>
+        </div>
+        <div class="stat">
+          <div class="v"><span>0.50 to 0.89</span></div>
+          <div class="k">VLM accuracy swing on prompt wording alone, caught by benchmarking</div>
+        </div>
+        <div class="stat">
+          <div class="v"><span>Self-hosted</span></div>
+          <div class="k">Models and agents running on-premise and in production on Fly.io</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">01</span><h2 id="exp-h">Experience</h2><span class="rule"></span></div>
+
+      <div class="timeline">
+        <article class="job">
+          <p class="when">Jun to Sep 2026</p>
+          <div class="body">
+            <h3>DabaCities</h3>
+            <p class="title">AI Engineer Intern</p>
+            <ul>
+              <li>Real-estate valuation microservice at R² 0.70+ on held-out data (XGBoost, FastAPI), released through split CI/CD pipelines that block model promotion below validation thresholds.</li>
+              <li>Three-workflow agentic orchestration layer running a marketing content lifecycle end to end, with a self-invoking recursive sub-workflow pattern enabling unlimited human-in-the-loop revision cycles.</li>
+              <li>Autonomous funding-discovery agent, self-hosted in production on Fly.io.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <p class="when">Feb to Jun 2026</p>
+          <div class="body">
+            <h3>JESA S.A</h3>
+            <p class="title">AI and Data Engineer Intern</p>
+            <ul>
+              <li>Converted engineering P&amp;ID drawings into a queryable Neo4j connectivity graph, extracting tags from the PDF vector text layer.</li>
+              <li>Traced a production vision-language model failure to the vision encoder: LLaVA-1.5's 336×336 CLIP input was destroying sub-20px tag text. Moved to native-resolution Qwen3-VL.</li>
+              <li>Shipped a deterministic connectivity tracer after benchmarking showed the model swung from 0.50 to 0.89 on prompt framing alone.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <p class="when">Oct to Dec 2025</p>
+          <div class="body">
+            <h3>ReadinessAI</h3>
+            <p class="title">Full Stack Developer</p>
+            <ul>
+              <li>Personalized career-assessment web app built full-stack in React, FastAPI and PostgreSQL.</li>
+              <li>Token-authenticated REST API behind a 100-question assessment flow, with SQL schema design spanning user profiles, session state, and scored results.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">02</span><h2 id="proj-h">Projects</h2><span class="rule"></span></div>
+      <!-- To add a project: copy one <a class="card"> block and update the href, icon, title, text and tags. The grid adapts automatically. -->
+      <div class="grid">
+
+        <!-- TODO: PLACEHOLDER. Replace href with the RAG System repo URL -->
+        <a class="card" href="#REPLACE-WITH-REPO-URL-rag-code-intelligence" target="_blank" rel="noopener noreferrer" aria-label="RAG System for Code Intelligence, view repository on GitHub (opens in new tab)">
+          <div class="top">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-search"/></svg></span>
+            <span class="ext" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+          </div>
+          <h3>RAG System for Code Intelligence</h3>
+          <p>End-to-end retrieval pipeline over a local codebase. LangChain orchestration, AST-based chunking on function and class boundaries exposed as a custom text splitter, sentence-transformer embeddings, ChromaDB, and a local LLM via Ollama for autonomous patch generation. Fine-tuned the embedding model in PyTorch on code-query pairs mined from the repository, evaluated against a hand-labelled retrieval set.</p>
+          <ul class="tags"><li>LangChain</li><li>PyTorch</li><li>ChromaDB</li><li>Ollama</li><li>FastAPI</li><li>Docker</li></ul>
+        </a>
+
+        <!-- TODO: PLACEHOLDER. Replace href with the P&ID Knowledge Graph repo URL -->
+        <a class="card" href="#REPLACE-WITH-REPO-URL-pid-knowledge-graph" target="_blank" rel="noopener noreferrer" aria-label="P&amp;ID Knowledge Graph, view repository on GitHub (opens in new tab)">
+          <div class="top">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-graph"/></svg></span>
+            <span class="ext" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+          </div>
+          <h3>P&amp;ID Knowledge Graph</h3>
+          <p>Converts engineering drawings into a queryable Neo4j connectivity graph. Benchmarked a quantized VLM (Qwen3-VL-4B) across five prompt conditions, found accuracy swinging from 0.50 to 0.89 on prompt framing alone, and shipped a deterministic tracer instead: union-find segment grouping, T-junction detection, spatial tag matching. Runs fully on-premise.</p>
+          <ul class="tags"><li>Qwen3-VL</li><li>PyTorch</li><li>Neo4j</li><li>PyMuPDF</li><li>Python</li></ul>
+        </a>
+
+        <!-- TODO: PLACEHOLDER. Replace href with the Agentic Content Orchestration repo URL -->
+        <a class="card" href="#REPLACE-WITH-REPO-URL-agentic-content-orchestration" target="_blank" rel="noopener noreferrer" aria-label="Agentic Content Orchestration, view repository on GitHub (opens in new tab)">
+          <div class="top">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-flow"/></svg></span>
+            <span class="ext" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+          </div>
+          <h3>Agentic Content Orchestration</h3>
+          <p>Three interconnected workflows running a marketing content lifecycle end to end, with a self-invoking recursive sub-workflow pattern for unlimited human-in-the-loop revision cycles, normalized PostgreSQL state tracking, and error monitoring with alerting.</p>
+          <ul class="tags"><li>n8n</li><li>Gemini API</li><li>PostgreSQL</li><li>Streamlit</li></ul>
+        </a>
+
+        <a class="card" href="https://github.com/Hiba-chokri/Scalable_Real_Estate_Price_Prediction" target="_blank" rel="noopener noreferrer" aria-label="Scalable Dubai Real Estate Price Prediction, view repository on GitHub (opens in new tab)">
+          <div class="top">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-server"/></svg></span>
+            <span class="ext" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+          </div>
+          <h3>Scalable Dubai Real Estate Price Prediction</h3>
+          <p>End-to-end price prediction pipeline for Dubai listings. Leakage-free train/val/test split with preprocessing fit on train only, ColumnTransformer and SelectKBest feature selection, XGBoost tuned in parallel with Ray Tune and early stopping on RMSE. Saved artifacts are served through Ray Serve and FastAPI, with a Streamlit front end.</p>
+          <ul class="tags"><li>XGBoost</li><li>Ray Tune</li><li>Ray Serve</li><li>FastAPI</li><li>scikit-learn</li><li>Streamlit</li><li>Docker</li></ul>
+        </a>
+
+        <!-- TODO: PLACEHOLDER. Replace href with the MLP from Scratch repo URL -->
+        <a class="card" href="#REPLACE-WITH-REPO-URL-mlp-from-scratch" target="_blank" rel="noopener noreferrer" aria-label="Multilayer Perceptron from Scratch, view repository on GitHub (opens in new tab)">
+          <div class="top">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-net"/></svg></span>
+            <span class="ext" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+          </div>
+          <h3>Multilayer Perceptron from Scratch</h3>
+          <p>Neural network implemented without a framework: forward pass, backpropagation, and gradient descent written by hand. Binary classification on the Wisconsin breast cancer dataset.</p>
+          <ul class="tags"><li>Python</li><li>NumPy</li></ul>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">03</span><h2 id="skills-h">Skills</h2><span class="rule"></span></div>
+      <div class="skills">
+        <div class="skill-box">
+          <h3><svg aria-hidden="true"><use href="#i-brain"/></svg>AI &amp; ML</h3>
+          <ul class="tags"><li>RAG</li><li>LLMs</li><li>Vision-Language Models</li><li>Agentic Workflows</li><li>Model Evaluation</li><li>Prompt Engineering</li><li>PyTorch</li><li>LangChain</li><li>Hugging Face Transformers</li><li>scikit-learn</li><li>XGBoost</li></ul>
+        </div>
+        <div class="skill-box">
+          <h3><svg aria-hidden="true"><use href="#i-db"/></svg>Backend &amp; Data</h3>
+          <ul class="tags"><li>Python</li><li>FastAPI</li><li>SQL</li><li>PostgreSQL</li><li>Neo4j</li><li>ChromaDB</li><li>pandas</li><li>NumPy</li></ul>
+        </div>
+        <div class="skill-box">
+          <h3><svg aria-hidden="true"><use href="#i-server"/></svg>Infrastructure</h3>
+          <ul class="tags"><li>Docker</li><li>Ray</li><li>Git</li><li>GitHub Actions</li><li>Fly.io</li><li>Ollama</li><li>Self-hosted inference</li><li>4-bit quantization</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">04</span><h2>Contact</h2><span class="rule"></span></div>
+      <div class="contact-card">
+        <h2 id="contact-h">Let's build something that works in production.</h2>
+        <p>I'm open to AI engineering roles, remote and worldwide. Email is the fastest way to reach me.</p>
+        <a class="email-big" href="mailto:hebachokri7@gmail.com">hebachokri7@gmail.com</a>
+        <dl class="facts">
+          <div class="fact"><dt>GitHub</dt><dd><a href="https://github.com/Hiba-chokri" target="_blank" rel="noopener noreferrer">Hiba-chokri</a></dd></div>
+          <div class="fact"><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/hiba-chokri-050b8a266" target="_blank" rel="noopener noreferrer">hiba-chokri</a></dd></div>
+          <div class="fact"><dt>Languages</dt><dd>Arabic (native), English and French (advanced)</dd></div>
+          <div class="fact"><dt>Availability</dt><dd>Remote, worldwide</dd></div>
+        </dl>
+        <div class="actions">
+          <!-- TODO: PLACEHOLDER. Same CV URL as in the hero -->
+          <a class="btn primary" href="#REPLACE-WITH-CV-URL" download>
+            <svg aria-hidden="true"><use href="#i-dl"/></svg>Download CV
+          </a>
+          <a class="btn" href="mailto:hebachokri7@gmail.com">
+            <svg aria-hidden="true"><use href="#i-mail"/></svg>Send an email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Hiba Chokri</span>
+    <span>
+      <a href="https://github.com/Hiba-chokri" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/hiba-chokri-050b8a266" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:hebachokri7@gmail.com">Email</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
